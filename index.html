@@ -1,0 +1,176 @@
+
+          </div>
+          <footer>
+            <strong>$189</strong>
+            <button type="button" data-cart="Friday Night Wax Box">Add</button>
+          </footer>
+        </article>
+        <article class="product-card" data-type="raw">
+          <img src="assets/vault-packs.png" alt="Trading cards and packs arranged for sale">
+          <div>
+            <span class="tag">Raw</span>
+            <h3>TCG Commander Stack</h3>
+            <p>Curated TCG singles bundle with condition notes and comp range.</p>
+          </div>
+          <footer>
+            <strong>$96</strong>
+            <button type="button" data-cart="TCG Commander Stack">Add</button>
+          </footer>
+        </article>
+      </section>
+
+      <section class="section buy-section" id="sell">
+        <div class="buy-copy">
+          <p class="eyebrow">Collection intake</p>
+          <h2>Sell cards without getting worked over.</h2>
+          <p>
+            Customers can submit sports or TCG collections, estimate value, choose cash,
+            store credit, or consignment, and send the details to your buying
+            team for review.
+          </p>
+          <ul class="check-list">
+            <li>Bulk, sealed, raw, graded, TCG, and complete set submissions</li>
+            <li>Condition and grading prompts reduce back-and-forth</li>
+            <li>Built-in comp range gives collectors a realistic first look</li>
+          </ul>
+        </div>
+        <form class="intake-form" id="sellForm">
+          <label>
+            Collection type
+            <select id="collectionType" required>
+              <option value="raw">Raw singles</option>
+              <option value="slab">Graded slabs</option>
+              <option value="sealed">Sealed wax</option>
+              <option value="mixed">Mixed collection</option>
+            </select>
+          </label>
+          <label>
+            Estimated card count
+            <input id="cardCount" type="number" min="1" value="50" required>
+          </label>
+          <label>
+            Condition grade
+            <input id="condition" type="range" min="1" max="10" value="8">
+            <span class="range-readout">Near mint: <strong id="conditionValue">8</strong>/10</span>
+          </label>
+          <label>
+            Desired deal
+            <select id="dealType">
+              <option value="cash">Cash buyout</option>
+              <option value="credit">Store credit</option>
+              <option value="consign">Consignment</option>
+            </select>
+          </label>
+          <div class="offer-box">
+            <span>Estimated first offer</span>
+            <strong id="offerValue">$1,040</strong>
+          </div>
+          <button class="button primary full" type="submit">Start Seller Review</button>
+          <p class="form-note" id="sellNote" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="section database-section" id="database">
+        <div>
+          <p class="eyebrow">Staff stock database</p>
+          <h2>Connect stock uploads to a real inventory database.</h2>
+          <p>
+            Public shoppers see searchable inventory. Staff can unlock upload
+            tools, connect a database endpoint, and push Excel or CSV stock files
+            with columns like SKU, Item, Game, Category, Condition, Quantity, and
+            Price.
+          </p>
+          <div class="database-actions">
+            <button class="button primary" id="staffToggle" type="button">Staff Stock Portal</button>
+            <button class="button ghost" id="loadSample" type="button">Load Sample</button>
+          </div>
+        </div>
+        <div class="database-panel">
+          <div class="staff-panel" id="staffPanel" hidden>
+            <div class="connection-grid">
+              <label>
+                Database endpoint
+                <input id="databaseEndpoint" type="url" placeholder="https://api.steelcitycards.com/inventory">
+              </label>
+              <label>
+                Staff access key
+                <input id="staffKey" type="password" placeholder="Paste staff key">
+              </label>
+            </div>
+            <div class="staff-actions">
+              <label class="file-button">
+                Upload Stock File
+                <input id="inventoryUpload" type="file" accept=".xlsx,.xls,.csv">
+              </label>
+              <button class="button ghost" id="saveConnection" type="button">Save Connection</button>
+            </div>
+            <p class="form-note" id="databaseNote" aria-live="polite">
+              Uploads preview locally now and are ready to wire to a database API.
+            </p>
+          </div>
+          <div class="search-row">
+            <input id="inventorySearch" type="search" placeholder="Search SKU, player, set, game, condition">
+            <span id="inventoryCount">0 items</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Item</th>
+                  <th>Game</th>
+                  <th>Category</th>
+                  <th>Condition</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="section feature-band">
+        <article>
+          <span>01</span>
+          <h3>Steel Reserve</h3>
+          <p>Let VIP collectors place holds on incoming cards before public drops.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Trade Calculator</h3>
+          <p>Compare cash, credit, and consignment numbers during negotiations.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Condition Ledger</h3>
+          <p>Track whitening, centering, corners, surface, and slab certs per item.</p>
+        </article>
+      </section>
+
+      <section class="section newsletter" id="newsletter">
+        <div>
+          <p class="eyebrow">Newsletter</p>
+          <h2>Drop alerts, buylist heat, and collector intel.</h2>
+          <p>
+            Build a list for weekly releases, trade-night announcements, TCG
+            arrivals, new acquisitions, and private offers.
+          </p>
+        </div>
+        <form id="newsletterForm" class="newsletter-form">
+          <input id="newsletterEmail" type="email" placeholder="collector@example.com" required>
+          <button class="button primary" type="submit">Join the List</button>
+          <p id="newsletterNote" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <aside class="cart-toast" id="cartToast" aria-live="polite"></aside>
+
+    <footer class="site-footer">
+      <strong>Steel City Cards</strong>
+      <span>Buy. Sell. Grade. Consign. Built for the long game.</span>
+    </footer>
+  </body>
+</html>
